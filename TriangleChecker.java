@@ -17,7 +17,7 @@ public class TriangleChecker {
     float b = enterFloat(s, "b: ");
     float c = enterFloat(s, "c: ");
     s.close();
-    printAnalysis(a, b, c);
+    areTriangleSidesGreaterThanZero(a, b, c);
   }
 
   // Eingabe einer Seitenlänge
@@ -27,7 +27,7 @@ public class TriangleChecker {
   }
 
   // Ausgabe der ermittelten Dreiecksart
-  private static void printAnalysis(float a, float b, float c) {
+  private static void areTriangleSidesGreaterThanZero(float a, float b, float c) {
     TriangleType type = checkTriangle(a, b, c);
     switch (type) {
       case NONE:
@@ -46,9 +46,43 @@ public class TriangleChecker {
   }
 
   // Analyse der Dreiecksart
-  public static TriangleType checkTriangle(float a, float b, float c) {
-    return TriangleType.NONE;
+  private static boolean isSumOfTwoSidesGreaterThanThirdSide(float sideOne, float sideTwo, float sideThree){
+     
+    return sideOne > 0 && sideTwo > 0 && sideThree > 0;
   }
 
+  private static boolean inequality(float sideOne, float sideTwo, float sideThree){
 
+    if((sideOne+sideTwo)>sideThree && (sideOne+sideThree)>sideTwo && (sideTwo+sideThree)>sideOne)
+    {
+    return true;
+    }
+    {
+    return false;
+    }
+  }
+
+public static TriangleType checkTriangle(float a, float b, float c) {
+
+
+    if(isSumOfTwoSidesGreaterThanThirdSide(a, b, c) && inequality(a, b ,c)){
+
+
+      if(a == b || b == c || c == a){
+
+      if(a == b && b == c)
+
+      {
+      return TriangleType.EQUILATERAL;
+      }
+      else{
+      return TriangleType.ISOSCELES;
+      }
+      }        
+      return TriangleType.NORMAL;
+    }
+    return TriangleType.NONE;    
+  }
+
+  
 }
