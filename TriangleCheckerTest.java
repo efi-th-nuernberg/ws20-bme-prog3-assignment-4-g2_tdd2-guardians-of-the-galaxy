@@ -6,7 +6,7 @@ public class TriangleCheckerTest {
 
     @Test
     public void testInvalidTriangle() {
-assertEquals(TriangleChecker.TriangleType.NONE, TriangleChecker.checkTriangle(-3, 3, 4));
+          assertEquals(TriangleChecker.TriangleType.NONE, TriangleChecker.checkTriangle(-3, 3, 4));
           assertEquals(TriangleChecker.TriangleType.NONE, TriangleChecker.checkTriangle(3, -4, 3));
           assertEquals(TriangleChecker.TriangleType.NONE, TriangleChecker.checkTriangle(1, 5, -66));
           assertEquals(TriangleChecker.TriangleType.NONE, TriangleChecker.checkTriangle(8, 1, -1));
